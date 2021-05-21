@@ -60,7 +60,7 @@ class CardHighlight extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Larangas da feira de dona maria msa msasa',
+                        'Laransas da feira de Dona Maria Algusta',
                         style: TextStyle(fontWeight: FontWeight.bold),
                         maxLines: 2,
                       ),

@@ -105,7 +105,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         SizedBox(height: EcoDimens.v5),
                         _buildInfo('Validade:', '29/06/2021'),
                         SizedBox(height: EcoDimens.v5),
-                        _buildInfo('Epiração do Anúncio:', '25/06/2021'),
+                        _buildInfo('Expiração do Anúncio:', '25/06/2021'),
                         SizedBox(height: EcoDimens.v5),
                         ..._buildTypeDelivery(context),
                         SizedBox(height: EcoDimens.v5),
@@ -251,7 +251,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             _showContact = true;
           });
         },
-        child: Text('Tenho interece'),
+        child: Text('Tenho interesse'),
       ),
     );
   }
