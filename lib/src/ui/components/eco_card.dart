@@ -43,12 +43,18 @@ class EcoCard extends StatelessWidget {
       ),
       child: Material(
         type: MaterialType.transparency,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(10),
-          splashColor: Theme.of(context).primaryColor.withOpacity(0.5),
-          highlightColor: Colors.transparent,
-          onTap: onTap,
-          child: child,
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(10),
+            splashColor: Theme.of(context).primaryColor.withOpacity(0.5),
+            highlightColor: Colors.transparent,
+            onTap: onTap,
+            child: child,
+          ),
         ),
       ),
     );

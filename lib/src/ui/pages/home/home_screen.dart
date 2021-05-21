@@ -2,7 +2,7 @@ import 'package:cubes/cubes.dart';
 import 'package:eco_xepa/src/ui/pages/home/pages/education_page.dart';
 import 'package:eco_xepa/src/ui/pages/home/pages/products_page.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/bottom_navigation.dart';
-import 'package:eco_xepa/src/ui/pages/register_product/register_product_screen.dart';
+import 'package:eco_xepa/src/ui/pages/product_register/product_register_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         onAdd: () {
-          context.goTo(RegisterProductScreen());
+          context.goTo(ProductRegisterScreen());
         },
       ),
     );

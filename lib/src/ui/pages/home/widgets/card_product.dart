@@ -3,27 +3,24 @@ import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class CardProduct extends StatelessWidget {
+  final VoidCallback? onTap;
+
+  const CardProduct({Key? key, this.onTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return EcoCard(
       margin: EcoDimens.paddingSmall,
       padding: EdgeInsets.zero,
-      onTap: () {},
+      onTap: onTap,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-            ),
-            child: Container(
-              width: 100,
-              height: 120,
-              child: Image.network(
-                'https://www.sescsp.org.br/files/artigo/94136911-180d-41c0-b880-9ca1f7381b10.jpg',
-                fit: BoxFit.cover,
-              ),
+          Container(
+            width: 100,
+            height: 120,
+            child: Image.network(
+              'https://www.sescsp.org.br/files/artigo/94136911-180d-41c0-b880-9ca1f7381b10.jpg',
+              fit: BoxFit.cover,
             ),
           ),
           Expanded(
@@ -67,11 +64,11 @@ class CardProduct extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.yellow,
+                        color: Colors.yellow[600],
                       ),
                       Text(
                         '4.5',
-                        style: TextStyle(color: Colors.yellow),
+                        style: TextStyle(color: Colors.yellow[600]),
                       ),
                       Expanded(child: Container()),
                       Text(

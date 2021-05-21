@@ -3,6 +3,7 @@ import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/card_highlight.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/card_product.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/card_search.dart';
+import 'package:eco_xepa/src/ui/pages/product_detail/product_detail_screen.dart';
 import 'package:eco_xepa/src/ui/pages/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class ProductPage extends StatelessWidget {
           title: 'Olá Rafael',
           description: 'Encontre aqui os produtos que desejar',
         ),
-        ..._buildContext()
+        ..._buildContent(context)
       ],
     );
   }
@@ -67,7 +68,7 @@ class ProductPage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildContext() {
+  List<Widget> _buildContent(BuildContext context) {
     return [
       Container(
         alignment: Alignment.topLeft,
@@ -84,9 +85,15 @@ class ProductPage extends StatelessWidget {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            CardHighlight(),
-            CardHighlight(),
-            CardHighlight(),
+            CardHighlight(
+              onTap: () => _goToDetail(context),
+            ),
+            CardHighlight(
+              onTap: () => _goToDetail(context),
+            ),
+            CardHighlight(
+              onTap: () => _goToDetail(context),
+            ),
           ],
         ),
       ),
@@ -100,10 +107,22 @@ class ProductPage extends StatelessWidget {
           ),
         ),
       ),
-      CardProduct(),
-      CardProduct(),
-      CardProduct(),
-      CardProduct(),
+      CardProduct(
+        onTap: () => _goToDetail(context),
+      ),
+      CardProduct(
+        onTap: () => _goToDetail(context),
+      ),
+      CardProduct(
+        onTap: () => _goToDetail(context),
+      ),
+      CardProduct(
+        onTap: () => _goToDetail(context),
+      ),
     ];
+  }
+
+  void _goToDetail(BuildContext context) {
+    context.goTo(ProductDetailScreen());
   }
 }

@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          color: Colors.black,
+          color: Colors.green[800],
           height: double.maxFinite,
           child: Image.network(
             'https://super.abril.com.br/wp-content/uploads/2019/03/site_feira.png',
