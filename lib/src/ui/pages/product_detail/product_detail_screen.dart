@@ -3,12 +3,24 @@ import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
-class ProductDetailScreen extends StatelessWidget {
+class ProductDetailScreen extends StatefulWidget {
+  @override
+  _ProductDetailScreenState createState() => _ProductDetailScreenState();
+}
+
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  bool _showContact = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Legume parara'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: SafeArea(
         top: false,
@@ -204,7 +216,7 @@ class ProductDetailScreen extends StatelessWidget {
             SizedBox(
               width: EcoDimens.v10,
             ),
-            Expanded(child: Text('Mercadinho de dona Vera')),
+            Expanded(child: Text('Mercadinho da Dona Vera')),
             Icon(
               Icons.star,
               color: Colors.yellow[600],
@@ -214,10 +226,16 @@ class ProductDetailScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.yellow[600],
               ),
-            )
+            ),
           ],
         ),
       ),
+      if (_showContact) ...[
+        SizedBox(
+          height: EcoDimens.v10,
+        ),
+        _buildInfoMarket(),
+      ],
     ];
   }
 
@@ -228,9 +246,61 @@ class ProductDetailScreen extends StatelessWidget {
             bottom: EcoDimens.v10,
           ),
       child: EcoButton(
-        onPressed: () {},
-        child: Text('Tenho Interece'),
+        onPressed: () {
+          setState(() {
+            _showContact = true;
+          });
+        },
+        child: Text('Tenho interece'),
       ),
+    );
+  }
+
+  Widget _buildInfoMarket() {
+    return Container(
+      width: double.maxFinite,
+      padding: EcoDimens.paddingSmall,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Dados de contato',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                decoration: TextDecoration.underline),
+          ),
+          SizedBox(height: EcoDimens.v10),
+          _buildInfoContact('Telefone: ', '(63) 984699729'),
+          SizedBox(height: EcoDimens.v5),
+          _buildInfoContact('Endereço: ',
+              'R. Vinte e Um de Abril, s/n - Centro, Araguaína - TO, 77804-100'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoContact(String label, String value) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            value,
+          ),
+        )
+      ],
     );
   }
 }
