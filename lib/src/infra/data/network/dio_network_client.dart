@@ -36,6 +36,17 @@ class DioNetworkClient implements NetworkClient {
         .catchError((error) => _implError<T>(error));
   }
 
+  @override
+  Future<NetworkResponse<T>> put<T>(
+    String path, {
+    Map<String, dynamic>? data,
+  }) {
+    return _dio
+        .put(path, data: data)
+        .then((value) => _implThen<T>(value))
+        .catchError((error) => _implError<T>(error));
+  }
+
   NetworkResponse<T> _implThen<T>(value) {
     return NetworkResponse<T>(
       data: value.data,

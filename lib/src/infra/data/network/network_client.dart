@@ -10,4 +10,9 @@ abstract class NetworkClient {
     String path, {
     Map<String, dynamic>? data,
   });
+
+  Future<NetworkResponse<T>> put<T>(
+    String path, {
+    Map<String, dynamic>? data,
+  });
 }
