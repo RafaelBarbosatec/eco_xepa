@@ -116,7 +116,8 @@ class _TutorialScreenState extends State<TutorialScreen> {
   }
 
   Widget _buildPrevius() {
-    if (controller.positions.isNotEmpty && controller.page == 0) {
+    if (controller.positions.isEmpty ||
+        (controller.positions.isNotEmpty && controller.page == 0)) {
       return SizedBox(
         width: 50,
       );

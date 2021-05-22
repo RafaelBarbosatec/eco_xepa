@@ -16,6 +16,18 @@ class ProductsCube extends Cube {
   void _addHighlights() {
     highlight.add(
       Product(
+          name: 'Chambari - sobras de festa',
+          description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 'R\$ 5,00/kg',
+          validity: '19/07/2021',
+          expiration: '24/05/2021',
+          img:
+              'https://s.afnoticias.com.br/cache/2021/21464744039e0be549a408da43a89a97.jpg'),
+    );
+
+    highlight.add(
+      Product(
           name: 'Larajas',
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -54,39 +66,51 @@ class ProductsCube extends Cube {
   void _addProducts() {
     products.add(
       Product(
-          name: 'Tomates',
-          description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          price: 'R\$ 2,00/kg',
-          validity: '19/07/2021',
-          expiration: '24/05/2021',
-          avaliation: '4.2',
-          img:
-              'https://uploads.metropoles.com/wp-content/uploads/2019/03/18162119/WhatsApp-Image-2019-03-18-at-16.16.25.jpeg'),
+        name: 'Capim dourado - limpeza de estoque',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        price: 'R\$ 5 unidade',
+        validity: '19/07/2021',
+        expiration: '24/05/2021',
+        avaliation: '4.2',
+        img: 'https://conexaoto.com.br/image/992_768x450_bextfit.jpg',
+      ),
     );
 
     products.add(
       Product(
-          name: 'Sobras de azulejo',
-          description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          price: 'R\$ 3,00/kg',
-          validity: '19/07/2021',
-          expiration: '24/05/2021',
-          img:
-              'https://i.pinimg.com/originals/43/db/67/43db67d2c2bfe9a0e24b798da542f2e8.jpg'),
+        name: 'Tomates',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        price: 'R\$ 2,00/kg',
+        validity: '19/07/2021',
+        expiration: '24/05/2021',
+        avaliation: '4.2',
+        img:
+            'https://uploads.metropoles.com/wp-content/uploads/2019/03/18162119/WhatsApp-Image-2019-03-18-at-16.16.25.jpeg',
+      ),
     );
 
     products.add(
       Product(
-          name: 'Casca de frutas e legumes',
-          description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          price: 'R\$ 3,00/kg',
-          validity: '19/07/2021',
-          expiration: '24/05/2021',
-          img:
-              'https://img.olhardigital.com.br/wp-content/uploads/2021/03/restos-de-comida.jpg'),
+        name: 'Sobras de azulejo',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        price: 'R\$ 3,00/kg',
+        validity: '19/07/2021',
+        expiration: '24/05/2021',
+        img:
+            'https://i.pinimg.com/originals/43/db/67/43db67d2c2bfe9a0e24b798da542f2e8.jpg',
+      ),
+    );
+
+    products.add(
+      Product(
+        name: 'Casca de frutas e legumes',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        price: 'R\$ 3,00/kg',
+        validity: '19/07/2021',
+        expiration: '24/05/2021',
+        img:
+            'https://img.olhardigital.com.br/wp-content/uploads/2021/03/restos-de-comida.jpg',
+      ),
     );
   }
 

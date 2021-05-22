@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class MyProductItem extends StatelessWidget {
   final VoidCallback? onDelete;
+  final VoidCallback? onViewinterest;
 
-  const MyProductItem({Key? key, this.onDelete}) : super(key: key);
+  const MyProductItem({Key? key, this.onDelete, this.onViewinterest}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return EcoCard(
@@ -163,7 +164,7 @@ class MyProductItem extends StatelessWidget {
 
   Widget _buildIconInteressados() {
     return InkWell(
-      onTap: () {},
+      onTap: onViewinterest,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: EcoDimens.v10),
         child: Row(
