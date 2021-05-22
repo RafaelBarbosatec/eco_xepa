@@ -1,7 +1,7 @@
+import 'package:eco_xepa/src/ui/pages/tutorial/tutorial_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'src/infra/di/dependency_injection.dart';
-import 'src/ui/pages/login/login_screen.dart';
 
 void main() {
   DependencyInjection.setup();
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: LoginScreen(),
+      home: TutorialScreen(),
     );
   }
 }

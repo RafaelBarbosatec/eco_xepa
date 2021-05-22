@@ -5,13 +5,17 @@ class EcoButton extends StatelessWidget {
   final Widget child;
   final Color? color;
 
-  const EcoButton(
-      {Key? key, required this.onPressed, required this.child, this.color})
-      : super(key: key);
+  const EcoButton({
+    Key? key,
+    required this.onPressed,
+    required this.child,
+    this.color,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
+    return Container(
+      constraints: BoxConstraints(minHeight: 40),
       child: ElevatedButton(
         onPressed: onPressed,
         child: child,

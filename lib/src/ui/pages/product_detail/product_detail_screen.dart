@@ -5,7 +5,6 @@ import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share/share.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:cubes/cubes.dart';
 
 class ProductDetailScreen extends StatefulWidget {

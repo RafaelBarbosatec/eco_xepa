@@ -1,5 +1,4 @@
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
-import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:flutter/material.dart';
 
 class TypeDeliverySelector extends StatefulWidget {
