@@ -1,24 +1,29 @@
+import 'package:eco_xepa/src/domain/model/education_new.dart';
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/infra/util/function.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class CardEducationHighlight extends StatelessWidget {
+  final EducationNew edu;
+
+  const CardEducationHighlight({Key? key, required this.edu}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return EcoCard(
       onTap: () {
-        launchURL(
-            'https://www.sebrae.com.br/sites/PortalSebrae/conteudos/destaques');
+        launchURL(edu.link);
       },
       margin: EcoDimens.paddingSmall,
       padding: EdgeInsets.zero,
       child: Stack(
         children: [
           Image.network(
-            'https://s3.amazonaws.com/wordpress-cdn.eadbox.com/2017/12/14111328/1312_educa%C3%A7%C3%A3o.png',
+            edu.img,
             fit: BoxFit.cover,
             height: 220,
+            width: double.maxFinite,
           ),
           Container(
             width: double.maxFinite,
@@ -31,7 +36,7 @@ class CardEducationHighlight extends StatelessWidget {
               ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
             ),
             child: Text(
-              'Aprenda a organizar as finanças de seu empreendimento',
+              edu.title,
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.white,

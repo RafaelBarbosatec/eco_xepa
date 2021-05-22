@@ -1,15 +1,18 @@
+import 'package:eco_xepa/src/domain/model/education_new.dart';
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/infra/util/function.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class CardEducation extends StatelessWidget {
+  final EducationNew edu;
+
+  const CardEducation({Key? key, required this.edu}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return EcoCard(
       onTap: () {
-        launchURL(
-            'https://www.sebrae.com.br/sites/PortalSebrae/conteudos/destaques');
+        launchURL(edu.link);
       },
       margin: EcoDimens.paddingSmall,
       padding: EdgeInsets.zero,
@@ -18,7 +21,7 @@ class CardEducation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.network(
-              'https://3eaf214443cb92a1.cdn.gocache.net/wp-content/uploads/2018/08/woman-composting-organic-kitchen-waste-picture-id843259360.jpg',
+              edu.img,
               width: 100,
               fit: BoxFit.cover,
             ),
@@ -29,7 +32,7 @@ class CardEducation extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Como evitar Desperdícios e ganhar dinheiro com as sobras',
+                      edu.title,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -48,7 +51,7 @@ class CardEducation extends StatelessWidget {
                       height: EcoDimens.v10,
                     ),
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dui scelerisque, rutrum eros ut, finibus magna.',
+                      edu.description,
                       maxLines: 3,
                     ),
                   ],
