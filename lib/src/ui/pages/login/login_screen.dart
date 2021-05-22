@@ -4,6 +4,7 @@ import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:eco_xepa/src/ui/components/eco_text_field.dart';
 import 'package:eco_xepa/src/ui/pages/home/home_screen.dart';
+import 'package:eco_xepa/src/ui/pages/register/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -104,7 +105,9 @@ class LoginScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: EcoButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.goTo(RegisterScreen());
+                            },
                             child: Text('Cadastrar'),
                             color: Colors.orange,
                           ),
