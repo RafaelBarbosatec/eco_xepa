@@ -1,16 +1,27 @@
 # eco_xepa
 
-Comercio de sobras de produtos e alimentos
+Comercio de sobras e liquidação de produtos e alimentos
 
-## Getting Started
+Apresentação             |  Login
+:-------------------------:|:-------------------------:
+![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img1.png)  |  ![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img2.png)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Cadastro             |  Home
+:-------------------------:|:-------------------------:
+![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img3.png)  |  ![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img4.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Detalhe do produto             |  Cadastro do produto
+:-------------------------:|:-------------------------:
+![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img5.png)  |  ![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img6.png)
+
+
+Perfil             |  Gerenciamento de produtos
+:-------------------------:|:-------------------------:
+![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img7.png)  |  ![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img8.png)
+
+
+Educacional             |  Educacional
+:-------------------------:|:-------------------------:
+![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img9.png)  |  ![](https://github.com/RafaelBarbosatec/eco_xepa/blob/main/imgs/img9.png)
