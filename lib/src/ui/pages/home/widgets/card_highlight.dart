@@ -62,22 +62,28 @@ class CardHighlight extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Text(
-                        item.name,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                        maxLines: 2,
-                      ),
+                    Text(
+                      item.name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      maxLines: 1,
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Text(
-                        'Expira em ${item.expiration}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10,
+                    Text(
+                      item.description,
+                      style: TextStyle(fontSize: 12),
+                      maxLines: 1,
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          'Expira em ${item.expiration}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 10,
+                            color: Colors.grey,
+                          ),
+                          maxLines: 2,
                         ),
-                        maxLines: 2,
                       ),
                     ),
                   ],

@@ -1,3 +1,4 @@
+import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -28,13 +29,52 @@ class _TutorialScreenState extends State<TutorialScreen> {
           controller: controller,
           children: [
             Container(
-              color: Colors.red,
+              padding: EcoDimens.paddingDefault,
+              decoration: BoxDecoration(
+                image: new DecorationImage(
+                  image: new ExactAssetImage('assets/bg_tutorial1.jpeg'),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'Aplicativo que diminui o desperdício conectando pequenos empreendedores a consumidores que adoram uma xepa.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ),
             Container(
-              color: Colors.blue,
+              padding: EcoDimens.paddingDefault,
+              decoration: BoxDecoration(
+                image: new DecorationImage(
+                  image: new ExactAssetImage('assets/bg_tutorial2.jpeg'),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'Perfeito para pequenos empreendedores que querem diminuir disperdícios ou escoar produtos com vendas em baixa. \n\n Ou consumidores que amam uma xepa e economizar.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ),
             Container(
-              color: Colors.purple,
+              padding: EcoDimens.paddingDefault,
+              decoration: BoxDecoration(
+                image: new DecorationImage(
+                  image: new ExactAssetImage('assets/bg_tutorial1.jpeg'),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'Para pessoas que gostam de produtos carregados de história, identidade e afetividade.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ),
           ],
         ),
@@ -52,18 +92,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.chevron_left_rounded,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    controller.previousPage(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.decelerate,
-                    );
-                  },
-                ),
+                _buildPrevius(),
                 SizedBox(
                   child: SmoothPageIndicator(
                     controller: controller, // PageController
@@ -83,6 +112,26 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildPrevius() {
+    if (controller.positions.isNotEmpty && controller.page == 0) {
+      return SizedBox(
+        width: 50,
+      );
+    }
+    return IconButton(
+      icon: Icon(
+        Icons.chevron_left_rounded,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        controller.previousPage(
+          duration: Duration(milliseconds: 300),
+          curve: Curves.decelerate,
+        );
+      },
     );
   }
 

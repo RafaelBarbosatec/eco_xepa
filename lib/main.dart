@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
+        primaryColor: Color(0xFF03b345),
       ),
       home: TutorialScreen(),
     );

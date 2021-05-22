@@ -42,14 +42,14 @@ class ProductPage extends CubeWidget<ProductsCube> {
                   ),
                   CardProduct(
                     item: value[indexProduct],
-                    onTap: () => _goToDetail(context),
+                    onTap: () => _goToDetail(context, value[indexProduct]),
                   ),
                 ],
               );
             }
             return CardProduct(
               item: value[indexProduct],
-              onTap: () => _goToDetail(context),
+              onTap: () => _goToDetail(context, value[indexProduct]),
             );
           });
     });
@@ -81,7 +81,7 @@ class ProductPage extends CubeWidget<ProductsCube> {
               itemBuilder: (context, index) {
                 return CardHighlight(
                   item: value[index],
-                  onTap: () => _goToDetail(context),
+                  onTap: () => _goToDetail(context, value[index]),
                 );
               },
             ),
@@ -91,7 +91,9 @@ class ProductPage extends CubeWidget<ProductsCube> {
     });
   }
 
-  void _goToDetail(BuildContext context) {
-    context.goTo(ProductDetailScreen());
+  void _goToDetail(BuildContext context, Product item) {
+    context.goTo(ProductDetailScreen(
+      item: item,
+    ));
   }
 }

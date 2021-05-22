@@ -17,13 +17,13 @@ class LoginScreen extends StatelessWidget {
         ),
         Container(
           height: double.maxFinite,
-          child: Image.network(
-            'https://super.abril.com.br/wp-content/uploads/2019/03/site_feira.png',
+          child: Image.asset(
+            'assets/bg_login.png',
             fit: BoxFit.cover,
           ),
         ),
         Container(
-          color: Colors.black.withOpacity(0.5),
+          color: Colors.black.withOpacity(0.7),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,

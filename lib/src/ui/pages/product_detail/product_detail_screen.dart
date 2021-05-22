@@ -1,3 +1,4 @@
+import 'package:eco_xepa/src/domain/model/product.dart';
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/infra/util/function.dart';
 import 'package:eco_xepa/src/ui/components/eco_button.dart';
@@ -8,6 +9,10 @@ import 'package:share/share.dart';
 import 'package:cubes/cubes.dart';
 
 class ProductDetailScreen extends StatefulWidget {
+
+  final Product item;
+
+  const ProductDetailScreen({Key? key, required this.item}) : super(key: key);
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
 }
@@ -20,7 +25,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Legume parara'),
+        title: Text(widget.item.name),
         actions: [
           IconButton(
             icon: Icon(Icons.share),
@@ -46,7 +51,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         width: double.maxFinite,
                         height: 200,
                         child: Image.network(
-                          'https://www.sescsp.org.br/files/artigo/94136911-180d-41c0-b880-9ca1f7381b10.jpg',
+                          widget.item.img,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -66,7 +71,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ),
                         ),
                         child: Text(
-                          'R\$ 2,00/kg',
+                          widget.item.price,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -82,7 +87,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Legumes do parara',
+                          widget.item.name,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -92,7 +97,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           height: EcoDimens.v5,
                         ),
                         Text(
-                          'Validade: 29/06/2021',
+                          'Validade: ${widget.item.validity}',
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -101,19 +106,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           height: EcoDimens.v10,
                         ),
                         Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dui scelerisque, rutrum eros ut, finibus magna. Donec nec iaculis odio. Nunc iaculis urna bibendum, feugiat augue a, ultrices diam. Aenean dolor lacus, fermentum ac risus eu, mollis commodo tellus. Donec vitae dui eu eros bibendum convallis vitae eu massa.',
+                          widget.item.description,
                         ),
                         SizedBox(
                           height: EcoDimens.v10,
                         ),
                         Divider(),
-                        _buildInfo('Preço:', 'R\$ 2,00/kg'),
+                        _buildInfo('Preço:', widget.item.price),
                         SizedBox(height: EcoDimens.v5),
                         _buildInfo('Quantidade:', '10kg'),
                         SizedBox(height: EcoDimens.v5),
-                        _buildInfo('Validade:', '29/06/2021'),
+                        _buildInfo('Validade:', widget.item.validity),
                         SizedBox(height: EcoDimens.v5),
-                        _buildInfo('Expiração do Anúncio:', '25/06/2021'),
+                        _buildInfo('Expiração do Anúncio:', widget.item.expiration),
                         SizedBox(height: EcoDimens.v5),
                         ..._buildTypeDelivery(context),
                         SizedBox(height: EcoDimens.v5),
