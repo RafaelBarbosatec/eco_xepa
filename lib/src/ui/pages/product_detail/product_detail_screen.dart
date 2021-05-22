@@ -1,7 +1,12 @@
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
+import 'package:eco_xepa/src/infra/util/function.dart';
 import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:cubes/cubes.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   @override
@@ -10,6 +15,8 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   bool _showContact = false;
+  String _adressText =
+      'R. Vinte e Um de Abril, s/n - Centro, Araguaína - TO, 77804-100';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.share),
-            onPressed: () {},
+            onPressed: () {
+              Share.share('Olha esse produto: https://ecoxepa.com.com');
+            },
           ),
         ],
       ),
@@ -93,7 +102,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           height: EcoDimens.v10,
                         ),
                         Text(
-                          'orem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dui scelerisque, rutrum eros ut, finibus magna. Donec nec iaculis odio. Nunc iaculis urna bibendum, feugiat augue a, ultrices diam. Aenean dolor lacus, fermentum ac risus eu, mollis commodo tellus. Donec vitae dui eu eros bibendum convallis vitae eu massa.',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis dui scelerisque, rutrum eros ut, finibus magna. Donec nec iaculis odio. Nunc iaculis urna bibendum, feugiat augue a, ultrices diam. Aenean dolor lacus, fermentum ac risus eu, mollis commodo tellus. Donec vitae dui eu eros bibendum convallis vitae eu massa.',
                         ),
                         SizedBox(
                           height: EcoDimens.v10,
@@ -158,40 +167,36 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       SizedBox(
         height: EcoDimens.v10,
       ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            Container(
-              padding: EcoDimens.paddingSmall,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+      Wrap(
+        runSpacing: 10,
+        spacing: 10,
+        children: [
+          Container(
+            padding: EcoDimens.paddingSmall,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Text(
+              'Entrega em seu endereço ',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Container(
+            padding: EcoDimens.paddingSmall,
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                'Entrega em seu endereço ',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                border: Border.all(color: Theme.of(context).primaryColor)),
+            child: Text(
+              'Retirada no local',
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
               ),
             ),
-            SizedBox(
-              width: EcoDimens.v10,
-            ),
-            Container(
-              padding: EcoDimens.paddingSmall,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Theme.of(context).primaryColor)),
-              child: Text(
-                'Retirada no local',
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     ];
   }
@@ -271,32 +276,57 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Dados de contato',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-                decoration: TextDecoration.underline),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Dados de contato',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              Text(
+                'Clique e converse',
+                style: TextStyle(color: Colors.blue, fontSize: 10),
+              )
+            ],
           ),
           SizedBox(height: EcoDimens.v10),
-          _buildInfoContact('Telefone: ', '(63) 984699729'),
+          InkWell(
+            onTap: () {
+              launchURL('tel:(63) 984699729');
+            },
+            child: _buildInfoContact('', '(63) 984699729', icon: Icons.phone),
+          ),
           SizedBox(height: EcoDimens.v5),
-          _buildInfoContact('Endereço: ',
-              'R. Vinte e Um de Abril, s/n - Centro, Araguaína - TO, 77804-100'),
+          InkWell(
+            onTap: () => _copyToClipBoard(_adressText),
+            child: _buildInfoContact(
+              '',
+              _adressText,
+              icon: Icons.home,
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildInfoContact(String label, String value) {
+  Widget _buildInfoContact(String label, String value, {IconData? icon}) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+        icon != null
+            ? Icon(icon)
+            : Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        SizedBox(
+          width: EcoDimens.v10,
         ),
         Expanded(
           child: Text(
@@ -305,5 +335,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         )
       ],
     );
+  }
+
+  void _copyToClipBoard(String text) async {
+    ClipboardData data = ClipboardData(text: text);
+    await Clipboard.setData(data);
+    context.showSnackBar(SnackBar(
+      content: Text('Copiado'),
+    ));
   }
 }

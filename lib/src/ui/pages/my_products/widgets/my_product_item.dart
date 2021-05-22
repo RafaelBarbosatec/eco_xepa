@@ -8,18 +8,17 @@ class MyProductItem extends StatelessWidget {
   const MyProductItem({Key? key, this.onDelete}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        EcoCard(
-          margin: EdgeInsets.only(
-            top: EcoDimens.v10,
-            left: EcoDimens.v10,
-            right: EcoDimens.v10,
-          ),
-          padding: EdgeInsets.zero,
-          onTap: () {},
-          child: IntrinsicHeight(
+    return EcoCard(
+      margin: EdgeInsets.only(
+        top: EcoDimens.v10,
+        left: EcoDimens.v10,
+        right: EcoDimens.v10,
+      ),
+      padding: EdgeInsets.zero,
+      onTap: () {},
+      child: Column(
+        children: [
+          IntrinsicHeight(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -91,34 +90,32 @@ class MyProductItem extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        Container(
-          transform: Matrix4.translationValues(0, -8, 0),
-          margin: EdgeInsets.symmetric(
-            horizontal: EcoDimens.v10,
-            vertical: EcoDimens.v10,
+          Container(
+            height: 1,
+            color: Colors.grey.withOpacity(0.2),
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
             ),
-            border: Border.all(color: Colors.grey.withOpacity(0.5)),
-          ),
-          child: Material(
-            type: MaterialType.transparency,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildIconDelete(),
-                _buildIconEdit(),
-                _buildIconInteressados(),
-              ],
+            child: Material(
+              type: MaterialType.transparency,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildIconDelete(),
+                  _buildIconEdit(),
+                  _buildIconInteressados(),
+                ],
+              ),
             ),
-          ),
-        ),
-      ],
+          )
+        ],
+      ),
     );
   }
 

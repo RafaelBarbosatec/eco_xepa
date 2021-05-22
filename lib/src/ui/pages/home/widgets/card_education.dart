@@ -1,4 +1,5 @@
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
+import 'package:eco_xepa/src/infra/util/function.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,10 @@ class CardEducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EcoCard(
-      onTap: () {},
+      onTap: () {
+        launchURL(
+            'https://www.sebrae.com.br/sites/PortalSebrae/conteudos/destaques');
+      },
       margin: EcoDimens.paddingSmall,
       padding: EdgeInsets.zero,
       child: IntrinsicHeight(

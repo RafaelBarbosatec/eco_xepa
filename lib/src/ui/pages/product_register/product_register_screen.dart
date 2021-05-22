@@ -4,6 +4,7 @@ import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:eco_xepa/src/ui/components/eco_text_field.dart';
 import 'package:eco_xepa/src/ui/pages/product_register/widgets/type_delivery_selector.dart';
+import 'package:eco_xepa/src/ui/pages/success/success_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductRegisterScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class ProductRegisterScreen extends StatelessWidget {
             child: Column(
               children: [
                 _buildImage(),
-                _buildFields(),
+                _buildFields(context),
               ],
             ),
           ),
@@ -36,6 +37,13 @@ class ProductRegisterScreen extends StatelessWidget {
       height: 200,
       child: Stack(
         children: [
+          Center(
+            child: Icon(
+              Icons.image,
+              size: 200,
+              color: Colors.grey,
+            ),
+          ),
           InkWell(
             onTap: () {},
             child: Container(
@@ -61,7 +69,7 @@ class ProductRegisterScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFields() {
+  Widget _buildFields(BuildContext context) {
     return Padding(
       padding: EcoDimens.paddingDefault,
       child: Column(
@@ -124,7 +132,12 @@ class ProductRegisterScreen extends StatelessWidget {
           SizedBox(
             width: double.maxFinite,
             child: EcoButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pop();
+                context.goTo(SuccesScreen(
+                  msg: 'Produto cadastrado com sucesso!',
+                ));
+              },
               child: Text('Salvar'),
             ),
           ),
