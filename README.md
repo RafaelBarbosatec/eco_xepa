@@ -1,4 +1,6 @@
-# eco_xepa
+# Ecoxepa
+
+APP desenvolvido para proposta do [Hackathon Cidade Empreendedora Araguaína](https://www.sebrae.com.br/sites/PortalSebrae/ufs/to/artigos/hackathon-cidade-empreendedora-araguaina,01cb6083937d8710VgnVCM100000d701210aRCRD)
 
 Comercio de sobras e liquidação de produtos e alimentos
 
