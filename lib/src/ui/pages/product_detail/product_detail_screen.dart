@@ -117,7 +117,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ],
               ),
             ),
-            _buildButton(),
+            if (!_showContact) _buildButton(),
           ],
         ),
       ),
@@ -158,37 +158,40 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       SizedBox(
         height: EcoDimens.v10,
       ),
-      Row(
-        children: [
-          Container(
-            padding: EcoDimens.paddingSmall,
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Text(
-              'Entrega no endereço ',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: EcoDimens.v10,
-          ),
-          Container(
-            padding: EcoDimens.paddingSmall,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Theme.of(context).primaryColor)),
-            child: Text(
-              'Retirada no local',
-              style: TextStyle(
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            Container(
+              padding: EcoDimens.paddingSmall,
+              decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                'Entrega em seu endereço ',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
-          )
-        ],
+            SizedBox(
+              width: EcoDimens.v10,
+            ),
+            Container(
+              padding: EcoDimens.paddingSmall,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Theme.of(context).primaryColor)),
+              child: Text(
+                'Retirada no local',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     ];
   }

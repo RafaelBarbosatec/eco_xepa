@@ -4,7 +4,6 @@ import 'package:eco_xepa/src/ui/pages/home/widgets/card_highlight.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/card_product.dart';
 import 'package:eco_xepa/src/ui/pages/home/widgets/card_search.dart';
 import 'package:eco_xepa/src/ui/pages/product_detail/product_detail_screen.dart';
-import 'package:eco_xepa/src/ui/pages/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
@@ -12,59 +11,12 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        _buildLocation(context),
         CardSearch(
           title: 'Olá Rafael',
           description: 'Encontre aqui os produtos que desejar',
         ),
         ..._buildContent(context)
       ],
-    );
-  }
-
-  Widget _buildLocation(BuildContext context) {
-    return Padding(
-      padding: EcoDimens.paddingSmall,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Araguaina - TO',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: EcoDimens.v5,
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                color: Colors.green,
-              ),
-            ],
-          ),
-          InkWell(
-            onTap: () {
-              context.goTo(ProfileScreen());
-            },
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  'https://pbs.twimg.com/profile_images/3474429373/5e10d62f520bcb8419177497960e7b03.jpeg',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

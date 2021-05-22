@@ -6,7 +6,11 @@ class EcoTextField extends StatelessWidget {
   final String hint;
   final bool isPassword;
 
-  const EcoTextField({Key? key, required this.observable, this.hint = '', this.isPassword = false})
+  const EcoTextField(
+      {Key? key,
+      required this.observable,
+      this.hint = '',
+      this.isPassword = false})
       : super(key: key);
 
   @override
@@ -18,6 +22,7 @@ class EcoTextField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         hintText: hint,
+        labelText: hint,
         contentPadding: const EdgeInsets.only(
           left: 14.0,
           bottom: 8.0,
@@ -28,7 +33,6 @@ class EcoTextField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey[400]!),
-          
         ),
         filled: true,
         fillColor: Colors.white,
