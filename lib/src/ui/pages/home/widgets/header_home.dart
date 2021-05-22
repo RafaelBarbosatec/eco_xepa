@@ -11,21 +11,25 @@ class HeaderHome extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Araguaina - TO',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: EcoDimens.v5,
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                color: Colors.green,
-              ),
-            ],
+          InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: () {},
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Araguaina - TO',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: EcoDimens.v5,
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.green,
+                ),
+              ],
+            ),
           ),
           InkWell(
             onTap: () {
