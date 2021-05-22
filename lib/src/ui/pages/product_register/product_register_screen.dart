@@ -4,6 +4,7 @@ import 'package:eco_xepa/src/ui/components/eco_button.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:eco_xepa/src/ui/components/eco_text_field.dart';
 import 'package:eco_xepa/src/ui/pages/product_register/widgets/type_delivery_selector.dart';
+import 'package:eco_xepa/src/ui/pages/product_register/widgets/unit_price.dart';
 import 'package:eco_xepa/src/ui/pages/success/success_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -100,6 +101,17 @@ class ProductRegisterScreen extends StatelessWidget {
             observable: CTextFormFieldControl(text: '').obsValue,
             hint: 'Preço',
           ),
+          SizedBox(
+            height: EcoDimens.v20,
+          ),
+          Text(
+            'Preço por:',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: EcoDimens.v10,
+          ),
+          UnitPrice(),
           SizedBox(
             height: EcoDimens.v20,
           ),

@@ -1,3 +1,4 @@
+import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/pages/my_products/widgets/my_product_item.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,9 @@ class MyProducts extends StatelessWidget {
           MyProductItem(),
           MyProductItem(),
           MyProductItem(),
+          SizedBox(
+            height: EcoDimens.v20,
+          ),
         ],
       ),
     );

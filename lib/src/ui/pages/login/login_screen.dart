@@ -95,7 +95,10 @@ class LoginScreen extends StatelessWidget {
                         Expanded(
                           child: EcoButton(
                             onPressed: () {
-                              context.goTo(HomeScreen());
+                              context.goToAndRemoveUntil(
+                                HomeScreen(),
+                                (_) => false,
+                              );
                             },
                             child: Text('Entrar'),
                           ),
