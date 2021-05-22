@@ -3,6 +3,9 @@ import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class MyProductItem extends StatelessWidget {
+  final VoidCallback? onDelete;
+
+  const MyProductItem({Key? key, this.onDelete}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -95,7 +98,6 @@ class MyProductItem extends StatelessWidget {
             horizontal: EcoDimens.v10,
             vertical: EcoDimens.v10,
           ),
-          padding: EcoDimens.paddingSmall,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -104,13 +106,16 @@ class MyProductItem extends StatelessWidget {
             ),
             border: Border.all(color: Colors.grey.withOpacity(0.5)),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildIconDelete(),
-              _buildIconEdit(),
-              _buildIconInteressados(),
-            ],
+          child: Material(
+            type: MaterialType.transparency,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildIconDelete(),
+                _buildIconEdit(),
+                _buildIconInteressados(),
+              ],
+            ),
           ),
         ),
       ],
@@ -119,17 +124,22 @@ class MyProductItem extends StatelessWidget {
 
   Widget _buildIconDelete() {
     return InkWell(
-      onTap: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.delete,
-            color: Colors.red,
-          ),
-          SizedBox(width: EcoDimens.v5),
-          Text('Remover'),
-        ],
+      onTap: () {
+        onDelete?.call();
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: EcoDimens.v10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.delete,
+              color: Colors.red,
+            ),
+            SizedBox(width: EcoDimens.v5),
+            Text('Remover'),
+          ],
+        ),
       ),
     );
   }
@@ -137,16 +147,19 @@ class MyProductItem extends StatelessWidget {
   Widget _buildIconEdit() {
     return InkWell(
       onTap: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.edit,
-            color: Colors.orange,
-          ),
-          SizedBox(width: EcoDimens.v5),
-          Text('Editar'),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: EcoDimens.v10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.edit,
+              color: Colors.orange,
+            ),
+            SizedBox(width: EcoDimens.v5),
+            Text('Editar'),
+          ],
+        ),
       ),
     );
   }
@@ -154,16 +167,19 @@ class MyProductItem extends StatelessWidget {
   Widget _buildIconInteressados() {
     return InkWell(
       onTap: () {},
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.list,
-            color: Colors.greenAccent,
-          ),
-          SizedBox(width: EcoDimens.v5),
-          Text('Interessados'),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: EcoDimens.v10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.list,
+              color: Colors.greenAccent,
+            ),
+            SizedBox(width: EcoDimens.v5),
+            Text('Interessados'),
+          ],
+        ),
       ),
     );
   }

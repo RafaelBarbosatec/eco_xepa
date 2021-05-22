@@ -1,5 +1,6 @@
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
+import 'package:eco_xepa/src/ui/pages/login/login_screen.dart';
 import 'package:eco_xepa/src/ui/pages/my_products/my_products.dart';
 import 'package:flutter/material.dart';
 import 'package:cubes/cubes.dart';
@@ -27,7 +28,9 @@ class ProfileScreen extends StatelessWidget {
           _buildItemMenu(
             'Sair',
             Icons.exit_to_app,
-            onTap: () {},
+            onTap: () {
+              context.goToAndRemoveUntil(LoginScreen(), (route) => false);
+            },
             color: Colors.red,
           ),
         ],
