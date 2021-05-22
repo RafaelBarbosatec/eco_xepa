@@ -1,12 +1,15 @@
 import 'package:cubes/cubes.dart';
+import 'package:eco_xepa/src/domain/model/product.dart';
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class CardHighlight extends StatelessWidget {
   final VoidCallback? onTap;
+  final Product item;
 
-  const CardHighlight({Key? key, this.onTap}) : super(key: key);
+  const CardHighlight({Key? key, this.onTap, required this.item})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return EcoCard(
@@ -23,7 +26,7 @@ class CardHighlight extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.network(
-                    'https://img.mfrural.com.br/api/image?url=https://s3.amazonaws.com/mfrural-produtos-us/251068-257274-1355437-laranjas.jpg&width=480&height=288&mode=4',
+                    item.img,
                     fit: BoxFit.cover,
                     width: double.maxFinite,
                   ),
@@ -42,7 +45,7 @@ class CardHighlight extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'R\$ 2.00/kg',
+                      item.price,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -57,10 +60,11 @@ class CardHighlight extends StatelessWidget {
               child: Padding(
                 padding: EcoDimens.paddingSmall,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Text(
-                        'Laransas da feira de Dona Maria Algusta',
+                        item.name,
                         style: TextStyle(fontWeight: FontWeight.bold),
                         maxLines: 2,
                       ),
@@ -68,7 +72,7 @@ class CardHighlight extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Text(
-                        'Expira em 19/06/2021',
+                        'Expira em ${item.expiration}',
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 10,

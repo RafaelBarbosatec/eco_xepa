@@ -1,11 +1,14 @@
+import 'package:eco_xepa/src/domain/model/product.dart';
 import 'package:eco_xepa/src/infra/theme/dimens.dart';
 import 'package:eco_xepa/src/ui/components/eco_card.dart';
 import 'package:flutter/material.dart';
 
 class CardProduct extends StatelessWidget {
+  final Product item;
   final VoidCallback? onTap;
 
-  const CardProduct({Key? key, this.onTap}) : super(key: key);
+  const CardProduct({Key? key, this.onTap, required this.item})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return EcoCard(
@@ -19,7 +22,7 @@ class CardProduct extends StatelessWidget {
             Container(
               width: 100,
               child: Image.network(
-                'https://www.sescsp.org.br/files/artigo/94136911-180d-41c0-b880-9ca1f7381b10.jpg',
+                item.img,
                 fit: BoxFit.cover,
               ),
             ),
@@ -30,7 +33,7 @@ class CardProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Legumes parara',
+                      item.name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -40,7 +43,7 @@ class CardProduct extends StatelessWidget {
                       height: EcoDimens.v2,
                     ),
                     Text(
-                      'Validade: 10/05/2020',
+                      'Validade: ${item.validity}',
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 10,
@@ -51,7 +54,7 @@ class CardProduct extends StatelessWidget {
                       height: EcoDimens.v5,
                     ),
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu dictum odio. Cras interdum vitae enim sed tempor.',
+                      item.description,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                       ),
@@ -67,12 +70,12 @@ class CardProduct extends StatelessWidget {
                           color: Colors.yellow[600],
                         ),
                         Text(
-                          '4.5',
+                          item.avaliation,
                           style: TextStyle(color: Colors.yellow[600]),
                         ),
                         Expanded(child: Container()),
                         Text(
-                          'R\$ 4,00 /kg',
+                          item.price,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).primaryColor,
